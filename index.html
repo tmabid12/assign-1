@@ -12,37 +12,73 @@
             display: grid;
             justify-content: center;
             width: 100%;
+            overflow: scroll;
         }
 
         .container-1 {
             margin-top: 10vh;
             display: flex;
             flex-direction: column;
-            height: 80vh;
+            height: 100vh;
             width: 400px;
-            
+
             align-items: center;
             justify-content: center;
         }
 
-         label {
+        h1 {
+            font-size: 50px;
+            color: white;
+        }
+
+        label {
             color: white;
             font-size: 2rem;
         }
 
-         input {
+        #item-totalCost {
+            font-size: 40px;
+            color: white;
+            height: 70px;
+            width: 100%;
+            box-shadow: 0px 0px 3px 3px gray;
+            text-align: center;
+            display: none;
+        }
+
+        input {
             margin-bottom: 1em;
             font-size: 30px;
         }
-        .container-2{
-            height: 30vh;
-            padding-top: 20vh;
+
+        .container-2 {
+            height: 100vh;
+            padding-top: 10vh;
+        }
+
+        .container-2 p {
+            color: white;
+            font-size: 35px;
+        }
+        #nameLength_p{
+            font-size: 40px;
+            color: white;
+            height: 70px;
+            width: 100%;
+            box-shadow: 0px 0px 3px 3px gray;
+            text-align: center;
+            display: none;
+        }
+        .container-3{
+            height: 100vh;
         }
     </style>
 </head>
 
 <body>
+
     <div class="container-1">
+        <h1 class="">Assignment-1</h1>
         <label for="item-screen1">Item-1</label>
         <input type="number" id="item-screen1">
 
@@ -54,17 +90,30 @@
 
         <input type="submit" id="submit" onclick="submit()">
 
-       <p id=item-totalCost></p>
+        <p id=item-totalCost></p>
     </div>
+    <!-- end of first assignment  -->
+
     <div class="container-2">
-        <label for="kmToM">Enter km :</label>
-        <input type="number" id="kmToM">
-    </div>
-    
-    <div class="meter-box">
+        <h1>Assignment-2</h1>
+        <p>Kilometer To Meter</p>
+        <input type="number" id="kmToM-screen" placeholder="ENTER KM">
+        <input type="button" value="submit" id="km-button" onclick="kmToM()">
         <p id="tometer"></p>
     </div>
 
+    <!-- end of scound assignment  -->
+
+    <div class="container-3">
+        <h1>Assignment-3</h1>
+        <input type="text" id="nameLengthScreen" placeholder="Enter Your Name...">
+        <input type="button" value="submit" id="nameLength-btn" onclick="nameLngth()">
+        <p id="nameLength_p"></p>
+    </div>
+
+
+
+    <!-- end of 3rd assignment -->
 
     <script>
         //  total price calculation   
@@ -75,44 +124,56 @@
         //     return totalCost;
 
         // }
-        
+
         // let result = bugget(2,4,5);
-      
-   
 
-        // function submit(){
-        //     let itemScreen1 = document.getElementById("item-screen1").value;
-        //     let itemScreen2 = document.getElementById("item-screen2").value;
-        //     let itemScreen3 = document.getElementById("item-screen3").value;
-        //    let totalCost = document.getElementById("item-totalCost");
-           
 
-        //     let result = itemScreen1+itemScreen2+itemScreen3;
-        
-        //   document.getElementById("item-totalCost").innerHTML= result;
-        // }
 
-        
+        function submit() {
+            let itemScreen1 = document.getElementById("item-screen1").value;
+            let itemScreen2 = document.getElementById("item-screen2").value;
+            let itemScreen3 = document.getElementById("item-screen3").value;
+            let totalCost = document.getElementById("item-totalCost");
+
+
+            let result = parseInt(itemScreen1) + parseInt(itemScreen2) + parseInt(itemScreen3);
+            let finalResult = "Total Cost is " + result
+
+            document.getElementById("item-totalCost").style.display = "block";
+            document.getElementById("item-totalCost").innerHTML = finalResult;
+        }
+
+
 
 
         // from km to m
 
-        function kmToM(km) {
-            let meter = km * 1000;
-            return meter;
-        }
-        let toMeter = kmToM(2);
+        // function kmToM(km) {
+        //     let meter = km * 1000;
+        //     return meter;
+        // }
+        // let toMeter = kmToM(2);
 
+        function kmToM() {
+            let kmScreen = document.getElementById("kmToM-screen").value;
+
+            let kmResult = parseInt(kmScreen) * 1000;
+            let finalKmResult = "Meter will be " + kmResult;
+            document.getElementById("tometer").innerHTML = finalKmResult;
+
+
+        }
 
         // lenth of name   
 
-        function myfunction(x) {
-            let nameLenth = x.length;
-            return x;
+        function nameLngth() {
+            let nameLengthScreen = document.getElementById("nameLengthScreen").value;
+            let nameResult = "The word's length is  " + nameLengthScreen.length;
+          
+            document.getElementById("nameLength_p").style.display = "block";
+            document.getElementById("nameLength_p").innerHTML = nameResult;
+
         }
-
-
-        let
 
 
 
